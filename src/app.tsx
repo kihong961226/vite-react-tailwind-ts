@@ -1,27 +1,19 @@
-import { lazy, Suspense } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Layout } from 'src/components/common';
-import Home from 'src/pages';
-
-const About = lazy(() => import('src/pages/about'));
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
     children: [
-      { index: true, element: <Home /> },
-      { path: 'about', element: <About /> },
+      { index: true, lazy: () => import('src/pages') },
+      { path: 'about', lazy: () => import('src/pages/about') },
     ],
   },
 ]);
 
 const App = () => {
-  return (
-    <Suspense fallback={null}>
-      <RouterProvider router={router} />
-    </Suspense>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;

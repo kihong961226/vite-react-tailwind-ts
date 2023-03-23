@@ -1,6 +1,7 @@
+import type { FC } from 'react';
 import { Counter } from 'src/components/ui';
 
-const About = () => {
+export const Component: FC = () => {
   return (
     <div>
       <h1>About Page</h1>
@@ -9,4 +10,4 @@ const About = () => {
   );
 };
 
-export default About;
+Component.displayName = 'About';

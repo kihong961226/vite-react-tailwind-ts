@@ -1,7 +1,8 @@
+import type { FC } from 'react';
 import { BriefcaseIcon, DribbleIcon } from 'src/components/icons';
 import { Counter } from 'src/components/ui';
 
-const Home = () => {
+export const Component: FC = () => {
   return (
     <div>
       <h1>Home Page</h1>
@@ -17,4 +18,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+Component.displayName = 'Home';
